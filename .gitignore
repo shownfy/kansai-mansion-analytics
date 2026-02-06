@@ -44,6 +44,8 @@ data/database/*
 # Models
 models/*
 !models/.gitkeep
+!models/latest.joblib
+!models/mansion_price_model.pkl
 
 # dbt
 dbt_project/target/

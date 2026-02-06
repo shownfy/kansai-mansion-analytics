@@ -52,7 +52,11 @@ st.markdown("""
 @st.cache_resource
 def load_predictor() -> MansionPricePredictor | None:
     """予測モデルをロード（キャッシュ付き）"""
-    model_path = Path("models/mansion_price_model.pkl")
+    # まず latest.joblib を試す
+    model_path = Path("models/latest.joblib")
+    if not model_path.exists():
+        # フォールバック: mansion_price_model.pkl
+        model_path = Path("models/mansion_price_model.pkl")
     if model_path.exists():
         return MansionPricePredictor(model_path)
     return None
