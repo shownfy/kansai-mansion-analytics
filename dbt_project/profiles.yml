@@ -1,0 +1,11 @@
+kansai_mansion:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/database/mansion.duckdb'
+      threads: 4
+    prod:
+      type: duckdb
+      path: '../data/database/mansion_prod.duckdb'
+      threads: 8

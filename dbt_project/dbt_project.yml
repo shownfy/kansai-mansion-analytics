@@ -1,0 +1,29 @@
+name: 'kansai_mansion_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'kansai_mansion'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  kansai_mansion_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+    dimensions:
+      +materialized: table
+    facts:
+      +materialized: table
+    marts:
+      +materialized: table
+      +schema: marts

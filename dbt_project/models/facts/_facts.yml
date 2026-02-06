@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: fct_transactions
+    description: "取引ファクトテーブル - マンション取引の数値指標を格納"
+    columns:
+      - name: transaction_id
+        description: "取引ID（サロゲートキー）"
+        tests:
+          - unique
+          - not_null
+      - name: prefecture_id
+        description: "府県ID（dim_prefectureへの外部キー）"
+        tests:
+          - relationships:
+              to: ref('dim_prefecture')
+              field: prefecture_id
+      - name: municipality_id
+        description: "市区町村ID（dim_municipalityへの外部キー）"
+        tests:
+          - relationships:
+              to: ref('dim_municipality')
+              field: municipality_id
+      - name: structure_id
+        description: "構造ID（dim_structureへの外部キー）"
+        tests:
+          - relationships:
+              to: ref('dim_structure')
+              field: structure_id
+      - name: floor_plan_id
+        description: "間取りID（dim_floor_planへの外部キー）"
+        tests:
+          - relationships:
+              to: ref('dim_floor_plan')
+              field: floor_plan_id
+      - name: trade_price
+        description: "取引価格（円）"
+        tests:
+          - not_null
+      - name: area_sqm
+        description: "面積（平米）"
+        tests:
+          - not_null
+      - name: price_per_sqm
+        description: "平米単価（円/平米）"
+      - name: building_year
+        description: "建築年"
+      - name: trade_year
+        description: "取引年"
+      - name: building_age
+        description: "築年数"
+      - name: coverage_ratio
+        description: "建ぺい率"
+      - name: floor_area_ratio
+        description: "容積率"

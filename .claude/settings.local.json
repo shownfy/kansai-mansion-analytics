@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "WebFetch(domain:www.reinfolib.mlit.go.jp)",
+      "Bash(source:*)",
+      "Bash(dbt build:*)",
+      "Bash(bash -c \"source .venv/bin/activate && cd dbt_project && dbt build 2>&1\")",
+      "Bash(bash -c:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:rapidman.hatenablog.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(duckdb:*)",
+      "Bash(wc -l:*)",
+      "Bash(du -sh:*)"
+    ]
+  }
+}

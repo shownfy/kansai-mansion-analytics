@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "生データ（APIから取得した取引データ）"
+    schema: main
+    tables:
+      - name: transaction_data
+        description: "不動産取引価格情報"
+        columns:
+          - name: Type
+            description: "種類（中古マンション等）"
+          - name: Region
+            description: "地域"
+          - name: Prefecture
+            description: "都道府県名"
+          - name: Municipality
+            description: "市区町村名"
+          - name: DistrictName
+            description: "地区名"
+          - name: TradePrice
+            description: "取引価格（総額）"
+          - name: PricePerUnit
+            description: "坪単価"
+          - name: FloorPlan
+            description: "間取り"
+          - name: Area
+            description: "面積（m2）"
+          - name: BuildingYear
+            description: "建築年"
+          - name: Structure
+            description: "建物の構造"
+          - name: CityPlanning
+            description: "都市計画"
+          - name: CoverageRatio
+            description: "建蔽率"
+          - name: FloorAreaRatio
+            description: "容積率"
+          - name: Period
+            description: "取引時点"

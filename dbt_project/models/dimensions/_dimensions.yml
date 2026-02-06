@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: dim_prefecture
+    description: "府県ディメンション"
+    columns:
+      - name: prefecture_id
+        description: "府県ID（サロゲートキー）"
+        tests:
+          - unique
+          - not_null
+      - name: prefecture_name
+        description: "府県名"
+      - name: prefecture_code
+        description: "JIS府県コード"
+      - name: prefecture_rank
+        description: "府県ランク（分析用）"
+
+  - name: dim_municipality
+    description: "市区町村ディメンション（価格統計を含む）"
+    columns:
+      - name: municipality_id
+        description: "市区町村ID（サロゲートキー）"
+        tests:
+          - unique
+          - not_null
+      - name: municipality
+        description: "市区町村名"
+      - name: prefecture_id
+        description: "府県ID（外部キー）"
+      - name: avg_price_per_sqm
+        description: "平均平米単価"
+      - name: area_rank
+        description: "エリアランク（A/B/C）"
+
+  - name: dim_structure
+    description: "建物構造ディメンション"
+    columns:
+      - name: structure_id
+        description: "構造ID（サロゲートキー）"
+        tests:
+          - unique
+          - not_null
+      - name: structure_type
+        description: "構造タイプ（RC/SRC/S/Wood/Other）"
+      - name: price_factor
+        description: "価格係数"
+
+  - name: dim_floor_plan
+    description: "間取りディメンション"
+    columns:
+      - name: floor_plan_id
+        description: "間取りID（サロゲートキー）"
+        tests:
+          - unique
+          - not_null
+      - name: floor_plan_name
+        description: "間取り名（元データ）"
+      - name: num_rooms
+        description: "部屋数"
+      - name: has_ldk
+        description: "LDKの有無"

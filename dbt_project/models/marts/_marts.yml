@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: mart_training_dataset
+    description: "ML学習用データセット（ディメンショナルモデルから構築）"
+    columns:
+      - name: trade_price
+        description: "取引価格（ターゲット変数）"
+        tests:
+          - not_null
+      - name: area_sqm
+        description: "面積（平米）"
+        tests:
+          - not_null
+      - name: building_age
+        description: "築年数"
+      - name: num_rooms
+        description: "部屋数"
+      - name: has_ldk
+        description: "LDKの有無（1/0）"
+      - name: coverage_ratio
+        description: "建ぺい率"
+      - name: floor_area_ratio
+        description: "容積率"
+      - name: structure_type
+        description: "構造タイプ（RC/SRC/S/Wood/Other）"
+      - name: prefecture_code
+        description: "府県コード（1:大阪、2:京都、3:兵庫、4:奈良、5:滋賀、6:和歌山）"
+      - name: city_avg_price_per_sqm
+        description: "市区町村の平均平米単価"
+      - name: station_avg_price_per_sqm
+        description: "駅周辺の推定平均平米単価"
+      - name: area_rank
+        description: "エリアランク（A/B/C）"
+      - name: time_to_station_min
+        description: "最寄り駅までの時間（分）- デフォルト10分"
+      - name: floor
+        description: "階数 - デフォルト5階"
+      - name: total_floors
+        description: "総階数 - デフォルト10階"
+      - name: log_passenger_count
+        description: "乗降客数（対数）- デフォルト4.48"
+      - name: station_rank
+        description: "駅ランク - デフォルトmedium"
+      - name: total_hazard_risk
+        description: "ハザードリスク合計 - デフォルト3.0"
+      - name: hazard_risk_category
+        description: "ハザードリスクカテゴリ - デフォルトmedium"
+      - name: trade_year
+        description: "取引年"
+      - name: quarter
+        description: "取引四半期"
+      - name: prefecture
+        description: "府県名"
+      - name: municipality
+        description: "市区町村名"

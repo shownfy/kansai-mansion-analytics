@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "取引データのステージングモデル - 生データのクレンジングと型変換"
+    columns:
+      - name: transaction_id
+        description: "取引ID（行番号ベース）"
+        tests:
+          - unique
+          - not_null
+      - name: property_type
+        description: "物件種別"
+      - name: prefecture
+        description: "府県名"
+        tests:
+          - not_null
+      - name: municipality
+        description: "市区町村名"
+      - name: district_name
+        description: "地区名"
+      - name: trade_price
+        description: "取引価格（円）"
+        tests:
+          - not_null
+      - name: area_sqm
+        description: "面積（平米）"
+      - name: floor_plan_raw
+        description: "間取り（元データ）"
+      - name: building_year
+        description: "建築年（西暦に正規化済み）"
+      - name: structure_raw
+        description: "構造（元データ）"
+      - name: coverage_ratio
+        description: "建ぺい率"
+      - name: floor_area_ratio
+        description: "容積率"
+      - name: trade_year
+        description: "取引年"
+      - name: trade_quarter
+        description: "取引四半期"
+      - name: city_planning
+        description: "都市計画区分"
